@@ -1,0 +1,2 @@
+Nie wiem, o co chodzi:
+Do "klasycznego" zestawu dodaliśmy na pierwszy rzut oka zbędny <script>var App, Search, Gif</script>. Jest w tym jednak pewien zamysł: zauważ, że w tym miejscu nie korzystamy z modułów tak, jak miało to miejsce w Node. Nie możemy więc zaimportować modułu Search lub Gif do modułu App. Z tego względu nasze komponenty muszą być zdefiniowane globalnie, dlatego też ich deklaracja została wysunięta na zewnątrz modułów.
