@@ -3,7 +3,7 @@
 //który wyświetli odpowiedniego gifa (gif.js)
 
 App = React.createClass({
-    render: function() {
+    //render: function() {
          getInitialState() {
             return {
                 loading: false,
