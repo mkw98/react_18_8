@@ -29,17 +29,17 @@ getGif: function(searchingText, callback) { // 1.
     var GIPHY_PUB_KEY = 'vYDHC2Ex4rf6H5D4DGUmOukTGEXa95h5';  //czy te klucze tutaj?
     var GIPHY_API_URL = "https://api.giphy.com";
 
-    var url = GIPHY_API_URL + '/v1/gifs/random?api_key=' + GIPHY_PUB_KEY + '&tag=' + searchingText;  // 2.
+    var url = GIPHY_API_URL + '/v1/gifs/random?api_key=' + GIPHY_PUB_KEY + '&tag=' + searchingText;  // Konstruujemy adres URL dla API Giphy
     var xhr = new XMLHttpRequest();  // 3.
     xhr.open('GET', url);
     xhr.onload = function() {
         if (xhr.status === 200) {
-           var data = JSON.parse(xhr.responseText).data; // 4.
-            var gif = {  // 5.
+           var data = JSON.parse(xhr.responseText).data; // W obiekcie odpowiedzi mamy obiekt z danymi. W tym miejscu rozpakowujemy je sobie do zmiennej data, aby nie pisać za każdym razem response.data.
+            var gif = {  // Układamy obiekt gif na podstawie tego, co otrzymaliśmy z serwera
                 url: data.fixed_width_downsampled_url,
                 sourceUrl: data.url
             };
-            callback(gif);  // 6.
+            callback(gif);  // Przekazujemy obiekt do funkcji callback, którą przekazaliśmy jako drugi parametr metody getGif
         }
     };
     xhr.send();
